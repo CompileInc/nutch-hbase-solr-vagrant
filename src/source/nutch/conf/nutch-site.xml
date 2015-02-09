@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+    <property>
+        <name>storage.data.store.class</name>
+        <value>org.apache.gora.hbase.store.HBaseStore</value>
+        <description>Default class for storing data</description>
+    </property>
+
+    <property>
+        <name>http.agent.name</name>
+        <value></value>
+    </property>
+
+    <property>
+        <name>db.ignore.external.links</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>file.content.limit</name>
+        <value>104857600</value>
+        <description>The length limit for downloaded content using the file
+            protocol, in bytes. If this value is nonnegative (>=0), content longer
+            than it will be truncated; otherwise, no truncation at all. Do not
+            confuse this setting with the http.content.limit setting.
+        </description>
+    </property>
+
+    <property>
+        <name>http.content.limit</name>
+        <value>104857600</value>
+        <description>The length limit for downloaded content using the http
+            protocol, in bytes. If this value is nonnegative (>=0), content longer
+            than it will be truncated; otherwise, no truncation at all. Do not
+            confuse this setting with the file.content.limit setting.
+        </description>
+    </property>
+
+    <property>
+        <name>plugin.includes</name>
+        <value>protocol-http|urlfilter-regex|parse-(html|tika|metatags)|index-(basic|anchor|more|metadata)|urlnormalizer-(pass|regex|basic)|indexer-solr</value>
+        <description>Regular expression naming plugin directory names to
+            include.  Any plugin not matching this expression is excluded.
+            In any case you need at least include the nutch-extensionpoints plugin. By
+            default Nutch includes crawling just HTML and plain text via HTTP,
+            and basic indexing and search plugins. In order to use HTTPS please enable
+            protocol-httpclient, but be aware of possible intermittent problems with the
+            underlying commons-httpclient library.
+        </description>
+    </property>
+
+</configuration>

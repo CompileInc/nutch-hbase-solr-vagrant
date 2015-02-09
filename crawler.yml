@@ -1,0 +1,22 @@
+---
+- hosts: default
+  sudo: yes
+  tasks:
+   - name: Add Oracle java repo
+     apt_repository: repo='ppa:webupd8team/java'
+   - name: Automatically select the Oracle License
+     shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+   - name: Install python-software-properties
+     apt: pkg=python-software-properties
+   - name: Install Oracle java 8
+     apt: pkg=oracle-java8-installer state=present update_cache=true
+   - name: Adding JAVA_HOME
+     lineinfile: dest=/etc/environment line="JAVA_HOME='/usr/lib/jvm/java-8-oracle'"
+   - name: Install Apache Ant
+     apt: pkg=ant
+
+
+   - name: Create hbase-data directory
+     file: path=/hbase-data/ state=directory mode="a=rwx"
+   - name: Create crawler build directory
+     file: path=/home/vagrant/compile-crawler/ state=directory mode="a=rwx"
