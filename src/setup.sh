@@ -35,8 +35,9 @@ echo "Copying hbase config"
 cp -r $SOURCE_DIR/hbase $BUILD_HOME/hbase-0.94.14/
 
 sleep 1
+NUTCH_HOME=$BUILD_HOME/apache-nutch-2.3
 echo "Copying Nutch config"
-cp -r $SOURCE_DIR/nutch $BUILD_HOME/apache-nutch-2.3
+cp -r $SOURCE_DIR/nutch $NUTCH_HOME
 
 if [ "$BUILD" -eq "1" ]
 then
