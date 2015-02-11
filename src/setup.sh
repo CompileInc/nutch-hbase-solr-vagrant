@@ -16,14 +16,29 @@ BUILD_HOME='/home/vagrant/compile-crawler'
 PKG_DIR='pkgs'
 SOURCE_DIR='source'
 
+NUTCH_SRC=$PKG_DIR/apache-nutch-2.3-src.tar.gz
+HBASE_SRC=$PKG_DIR/hbase-0.94.14.tar.gz
+SOLR_SRC=$PKG_DIR/solr-4.10.3.tgz
+
 if [ "$BUILD" -eq "1" ]
 then
-wget -P $PKG_DIR https://archive.apache.org/dist/nutch/2.3/apache-nutch-2.3-src.tar.gz
-tar -xvf $PKG_DIR/apache-nutch-2.3-src.tar.gz -C $BUILD_HOME
-wget -P $PKG_DIR https://archive.apache.org/dist/hbase/hbase-0.94.14/hbase-0.94.14.tar.gz
-tar -xvf $PKG_DIR/hbase-0.94.14.tar.gz -C $BUILD_HOME
-wget -P $PKG_DIR https://archive.apache.org/dist/lucene/solr/4.10.3/solr-4.10.3.tgz
-tar -xvf $PKG_DIR/solr-4.10.3.tgz -C $BUILD_HOME
+    if [ ! -f $NUTCH_SRC ]
+    then
+        wget -P $PKG_DIR https://archive.apache.org/dist/nutch/2.3/apache-nutch-2.3-src.tar.gz
+    fi
+    tar -xvf $NUTCH_SRC -C $BUILD_HOME
+
+    if [ ! -f $HBASE_SRC ]
+    then
+        wget -P $PKG_DIR https://archive.apache.org/dist/hbase/hbase-0.94.14/hbase-0.94.14.tar.gz
+    fi
+    tar -xvf $HBASE_SRC -C $BUILD_HOME
+
+    if [ ! -f $SOLR_SRC ]
+    then
+        wget -P $PKG_DIR https://archive.apache.org/dist/lucene/solr/4.10.3/solr-4.10.3.tgz
+    fi
+    tar -xvf $SOLR_SRC -C $BUILD_HOME
 fi
 
 sleep 1
