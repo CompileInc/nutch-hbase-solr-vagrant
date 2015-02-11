@@ -12,7 +12,7 @@ while getopts ":b" opt; do
   esac
 done
 
-BUILD_HOME='/home/vagrant/compile-crawler'
+BUILD_HOME='/home/$USER/compile-crawler'
 PKG_DIR='pkgs'
 SOURCE_DIR='source'
 
