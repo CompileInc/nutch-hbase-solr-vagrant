@@ -43,16 +43,16 @@ fi
 
 sleep 1
 echo "Copying Solr config"
-cp -r $SOURCE_DIR/solr $BUILD_HOME/solr-4.10.3/
+cp -r $SOURCE_DIR/solr/* $BUILD_HOME/solr-4.10.3/
 
 sleep 1
 echo "Copying hbase config"
-cp -r $SOURCE_DIR/hbase $BUILD_HOME/hbase-0.94.14/
+cp -r $SOURCE_DIR/hbase/* $BUILD_HOME/hbase-0.94.14/
 
 sleep 1
 NUTCH_HOME=$BUILD_HOME/apache-nutch-2.3
 echo "Copying Nutch config"
-cp -r $SOURCE_DIR/nutch $NUTCH_HOME
+cp -r $SOURCE_DIR/nutch/* $NUTCH_HOME
 
 if [ "$BUILD" -eq "1" ]
 then
